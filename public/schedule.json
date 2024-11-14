@@ -1,0 +1,26 @@
+{
+  "races": [
+      {
+          "race": "Bahrain Grand Prix",
+          "track": "Bahrain International Circuit",
+          "date": "March 2, 2024",
+          "location": "Sakhir, Bahrain",
+          "winner": "Max Verstappen"
+      },
+      {
+          "race": "Saudi Arabian Grand Prix",
+          "track": "Jeddah Corniche Circuit",
+          "date": "March 9, 2024",
+          "location": "Jeddah, Saudi Arabia",
+          "winner": "Max Verstappen"
+      },
+      {
+          "race": "Australian Grand Prix",
+          "track": "Albert Park Grand Prix Circuit",
+          "date": "March 24, 2024",
+          "location": "Melbourne, Australia",
+          "winner": "Carlos Sainz"
+      }
+      
+  ]
+}

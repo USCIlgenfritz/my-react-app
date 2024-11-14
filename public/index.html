@@ -1,43 +1,164 @@
 <!DOCTYPE html>
+<!--Connor Ilgenfritz-->
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Home | RaceWay News</title>
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<!-- Main Page -->
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<body>
+  <div id="content">
+    <!-- Header -->
+    <header id="main-header">
+      <div id="heading">
+        <h1 id="title">RaceWay News: The Home for Formula 1 News</h1>
+      </div>
+      <!-- Navigation -->
+      <hr>
+      <div id="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="what-is-f1.html">What is F1?</a></li>
+            <li><a href="wdc.html">Standings</a></li>
+            <li><a href="grid.html">The Grid</a></li>
+            <li><a href="tracks.html">Tracks</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>    
+    </header>
+
+    <!-- What is F1? Teaser -->
+    <div id="WIF1">
+      <h2>Formula One</h2>
+      <p>
+        Formula One (F1) is the pinnacle of international auto racing, featuring cutting-edge technology and some of
+        the fastest cars in the world reaching upwards of over 200 MPH. The F1 World Championship, organized by the FIA,
+        has been the highest challenge in motorsports since 1950, stunning fans with its blend of speed, strategy, and
+        excitement.
+      </p>
+      <a href="what-is-f1.html" class="lm-button">Learn More</a>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <!-- Standings Teaser -->
+      <div class="section">
+        <h2>Current Driver Standings</h2>
+        <div class="standings-teaser-section">
+          <div class="standings-teaser" id="2nd-place">
+            <h2>2nd Place</h2>
+            <img src="images/lnor.jpg" alt="Lando Norris">
+            <h2>Lando Norris - McLaren</h2>
+          </div>
+          <div class="standings-teaser" id="1st-place">
+            <h2>1st Place</h2>
+            <img src="images/mver.jpg" alt="Max Verstappen">
+            <h2>Max Verstappen - Red Bull</h2>
+          </div>
+          <div class="standings-teaser" id="3rd-place">
+            <h2>3rd Place</h2>
+            <img src="images/clec.jpg" alt="Charles Leclerc">
+            <h2>Charles Leclerc - Ferrari</h2>
+          </div>
+        </div>
+        <a href="wdc.html" class="news-button">Standings</a>
+      </div>
+
+      <!-- News Teaser -->
+      <div class="section" id="news">
+        <h2>Latest F1 News</h2>
+
+        <div class="news-item">
+          <img src="images/llaw.jpg" />
+          <h2>Daniel Ricciardo Replaced by Liam Lawson?</h2>
+          <p>
+            Breaking News! Daniel Ricciardo will be replaced by Liam Lawson immediately. Click here to learn more.
+          </p>
+          <p>Published on: <strong>September 26, 2024</strong></p>
+        </div>
+
+        <div class="news-item">
+          <img src="images/f1-cars.jpg" />
+          <h2>What is Up With the Weird F1 Schedule</h2>
+          <p>
+            Many F1 fans have pointed out that the 2024 F1 Schedule makes no sense. Following Summer break, the drivers
+            raced in two Grand Prix and are now set for another 4 week break.
+          </p>
+          <p>Published on: <strong>September 24, 2024</strong></p>
+        </div>
+
+        <div class="news-item">
+          <img src="images/SingaporeNews.jpg" alt="Singapore GP">
+          <h2>What Happened at the Singapore GP</h2>
+          <p>Round 18 of the WDC has completed, but what happened? Read here to find all the news on the Singapore Grand
+            Prix.</p>
+          <p>Published on: <strong>September 22, 2024</strong></p>
+        </div>
+
+        <div class="news-item">
+          <img src="images/dannyric.jpg" alt="Daniel Ricciardo">
+          <h2>Is Ricciardo's Seat Up For Grabs</h2>
+          <p>Daniel Ricciardo's future has been up in the air for a while, but recent rumors say Singapore will be his
+            last race.</p>
+          <p>Published on: <strong>September 20, 2024</strong></p>
+        </div>
+
+        <a href="news.html" class="news-button">Read More</a>
+      </div>
+
+      <!-- Upcoming Races -->
+      <div class="section" id="upcoming-races">
+        <h2>Upcoming Races</h2>
+
+        <div class="race-item">
+          <img src="images/USA.jpg" alt="US Grand Prix">
+          <div>
+            <h3>US Grand Prix</h3>
+            <p>Date: <strong>October 20, 2024</strong></p>
+            <p>Round 19 of the WDC takes place in Austin, Texas. The Circuit of the Americas will feature 56 laps of
+              action around the track.
+              2 DRS zones and a downhill straight will definitely lead to some great racing. Don't forget to watch the
+              US Grand Prix on OCT 20 at 3pm EST.</p>
+          </div>
+        </div>
+
+        <div class="race-item">
+          <img src="images/mexicoGP.jpg" alt="Mexico Grand Prix">
+          <div>
+            <h3>Mexico Grand Prix</h3>
+            <p>Date: <strong>October 27, 2024</strong></p>
+            <p>Round 20 of the WDC takes place in Mexico City, Mexico. The Mexico Grand Prix will feature 71 laps of
+              action around the track. This race will be Red Bull Driver, Sergio Perez's home race. Don't forget to
+              watch
+              the
+              Mexico Grand Prix on OCT 27 at 4pm EST.</p>
+          </div>
+        </div>
+
+        <div class="race-item">
+          <img src="images/brazilGP.jpg" alt="Brazilian Grand Prix">
+          <div>
+            <h3>Brazilian Grand Prix</h3>
+            <p>Date: <strong>November 3, 2024</strong></p>
+            <p>Round 21 of the WDC takes place in Sau Paulo, Brazil. The race will be 71 laps and includes 15 corners
+              and quite a few chicanes. Don't forget to watch the
+              Brazilian Grand Prix on NOV 3 at 12pm EST.</p>
+          </div>
+        </div>
+
+        <a href="tracks.html" class="news-button">Full Schedule</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024-2025 Raceway News: Home of F1 News</p>
+    </footer>
+  </div>
+</body>
+
 </html>
