@@ -184,4 +184,3 @@ scheduleData.forEach(item => {
     `;
     tbody.appendChild(row);
 });
-

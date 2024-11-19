@@ -12,7 +12,7 @@
             <h1 id="title">RaceWay News: The Home for Formula 1 News</h1>
         </div>
         <hr>
-        <div id="main-nav">
+        <nav id="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="what-is-f1.html">What is F1?</a></li>
@@ -20,38 +20,51 @@
                 <li><a href="grid.html">The Grid</a></li>
                 <li><a href="tracks.html">Tracks</a></li>
                 <li><a href="news.html">News</a></li>
+                <li><a href="comments.html">Comments</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
 
     <main>
         <section id="contact-us">
             <h2>Contact Us</h2>
-            <form id="contact-form" action="https://formspree.io/f/meoqeprn" method="POST">
-                <label for="first-name">First Name <span class="required">*</span></label>
-                <input type="text" id="first-name" name="first-name" required>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="31aac170-fe99-454d-be45-7b55b0fa3457">
+                
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
 
-                <label for="last-name">Last Name <span class="required">*</span></label>
-                <input type="text" id="last-name" name="last-name" required>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
 
-                <label for="email">Email <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required>
+                <div class="form-group">
+                    <label for="favorite-driver">Favorite Driver:</label>
+                    <input type="text" id="favorite-driver" name="favorite_driver" placeholder="Enter your favorite driver">
+                </div>
 
-                <label for="favorite-driver">Favorite Driver (Optional)</label>
-                <input type="text" id="favorite-driver" name="favorite-driver">
+                <div class="form-group">
+                    <label for="favorite-team">Favorite Team:</label>
+                    <input type="text" id="favorite-team" name="favorite_team" placeholder="Enter your favorite team">
+                </div>
 
-                <label for="feedback">Feedback <span class="required">*</span></label>
-                <textarea id="feedback" name="feedback" required></textarea>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+                </div>
 
-                <button type="submit">Submit</button>
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <button type="submit">Submit Form</button>
             </form>
-            <div id="form-message"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024-2025 Raceway News: Home of F1 News</p>
+        <p>&copy; 2024-2025 RaceWay News: Home of F1 News</p>
     </footer>
 
     <script src="script.js"></script>

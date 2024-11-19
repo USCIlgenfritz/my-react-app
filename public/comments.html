@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Season Comments | RaceWay News</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="main-header">
+        <div id="heading">
+            <h1 id="title">RaceWay News: The Home for Formula 1 News</h1>
+        </div>
+
+        <!-- Navigation -->
+        <hr>
+        <div id="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="what-is-f1.html">What is F1?</a></li>
+                <li><a href="wdc.html">Standings</a></li>
+                <li><a href="grid.html">The Grid</a></li>
+                <li><a href="tracks.html">Tracks</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="comments.html">F1 Season Comments</a></li> <!-- Added link to comments page -->
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Comments</h1>
+
+        <div id="comments-list">
+          <ul>
+            <!-- List of comments will be rendered here -->
+          </ul>
+        </div>
+      
+        <div id="add-comment-section">
+          <h2>Add a Comment</h2>
+          <form id="comment-form">
+            <textarea id="comment-text" placeholder="Enter your comment..."></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <div id="form-status"></div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const commentForm = document.getElementById('comment-form');
+          const commentText = document.getElementById('comment-text');
+          const formStatus = document.getElementById('form-status');
+          const commentsList = document.getElementById('comments-list').querySelector('ul');
+    
+          // Fetch and display comments from the server
+          async function fetchComments() {
+            const response = await fetch('http://localhost:5000/comments');
+            const comments = await response.json();
+            commentsList.innerHTML = ''; // Clear existing comments
+            comments.forEach(comment => {
+              const li = document.createElement('li');
+              li.textContent = comment;
+              commentsList.appendChild(li);
+            });
+          }
+    
+          // Submit a new comment to the server
+          commentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const comment = commentText.value.trim();
+            
+            if (!comment) {
+              formStatus.textContent = 'Please enter a valid comment.';
+              return;
+            }
+    
+            try {
+              const response = await fetch('http://localhost:5000/comments', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ comment }),
+              });
+    
+              const data = await response.json();
+              if (response.status === 201) {
+                formStatus.textContent = 'Comment added successfully!';
+                commentText.value = '';
+                fetchComments(); // Re-fetch comments to include the new one
+              } else {
+                formStatus.textContent = data.message || 'Something went wrong';
+              }
+            } catch (error) {
+              formStatus.textContent = 'Error adding comment: ' + error.message;
+            }
+          });
+    
+          // Initial fetch of comments when the page loads
+          fetchComments();
+        });
+      </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024-2025 Raceway News: Home of F1 News</p>
+    </footer>
+
+    <script src="comments.js"></script>
+</body>
+
+</html>
