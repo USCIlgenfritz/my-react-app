@@ -342,7 +342,6 @@ td {
   margin: 10px 0;
   padding: 10px;
   border-radius: 5px;
-  font-size: 1em;
   color: #333;
 }
 
@@ -353,12 +352,13 @@ td {
 
 .comment-text {
   font-style: italic;
+  font-size: 2em;
   color: #555;
 }
 
 /* Add Comment Section */
 #add-comment-section {
-  color:black
+  color:black ;
   margin-top: 40px;
   padding: 20px;
   background-color: lightgrey;
@@ -375,7 +375,7 @@ td {
   padding: 10px;
   margin-bottom: 10px;
   height: 100px;
-  font-size: 1em;
+  font-size: 2em;
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: none;

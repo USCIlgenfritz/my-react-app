@@ -25,8 +25,8 @@
                 <li><a href="grid.html">The Grid</a></li>
                 <li><a href="tracks.html">Tracks</a></li>
                 <li><a href="news.html">News</a></li>
+                <li><a href="comments.html">Comments</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="comments.html">F1 Season Comments</a></li> <!-- Added link to comments page -->
             </ul>
         </div>
     </header>
@@ -64,8 +64,65 @@
             commentsList.innerHTML = ''; // Clear existing comments
             comments.forEach(comment => {
               const li = document.createElement('li');
-              li.textContent = comment;
+              li.innerHTML = `
+                <p>${comment.comment}</p>
+                <button class="edit-btn" data-id="${comment.id}">Edit</button>
+                <button class="delete-btn" data-id="${comment.id}">Delete</button>
+              `;
               commentsList.appendChild(li);
+            });
+
+            // Attach edit and delete event listeners
+            const editButtons = document.querySelectorAll('.edit-btn');
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            
+            editButtons.forEach(button => {
+              button.addEventListener('click', async (e) => {
+                const commentId = e.target.dataset.id;
+                const commentText = prompt('Edit comment:');
+                
+                if (commentText) {
+                  try {
+                    const response = await fetch(`http://localhost:5000/comments/${commentId}`, {
+                      method: 'PUT',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({ comment: commentText }),
+                    });
+
+                    const data = await response.json();
+                    if (response.status === 200) {
+                      fetchComments(); // Re-fetch comments to reflect the update
+                    } else {
+                      formStatus.textContent = data.message || 'Failed to edit comment';
+                    }
+                  } catch (error) {
+                    formStatus.textContent = 'Error editing comment: ' + error.message;
+                  }
+                }
+              });
+            });
+
+            deleteButtons.forEach(button => {
+              button.addEventListener('click', async (e) => {
+                const commentId = e.target.dataset.id;
+
+                try {
+                  const response = await fetch(`http://localhost:5000/comments/${commentId}`, {
+                    method: 'DELETE',
+                  });
+
+                  const data = await response.json();
+                  if (response.status === 200) {
+                    fetchComments(); // Re-fetch comments after deletion
+                  } else {
+                    formStatus.textContent = data.message || 'Failed to delete comment';
+                  }
+                } catch (error) {
+                  formStatus.textContent = 'Error deleting comment: ' + error.message;
+                }
+              });
             });
           }
     
@@ -104,7 +161,7 @@
           // Initial fetch of comments when the page loads
           fetchComments();
         });
-      </script>
+    </script>
 
     <!-- Footer -->
     <footer>

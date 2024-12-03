@@ -146,14 +146,14 @@ const scheduleData = [
         "track": "Interlagos",
         "date": "November 3, 2024",
         "location": "Sao Paulo, Brazil",
-        "winner": ""
+        "winner": "Max Verstappen"
     },
     {
         "race": "Las Vegas Grand Prix",
         "track": "Las Vegas Strip Circuit",
         "date": "November 23, 2024",
         "location": "Las Vegas, USA",
-        "winner": ""
+        "winner": "George Russel"
     },
     {
         "race": "Qatar Grand Prix",
