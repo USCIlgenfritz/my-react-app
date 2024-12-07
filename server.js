@@ -1,9 +1,9 @@
 const express = require('express');
-const app = express();
+const mongoose = require('mongoose'); // Import Mongoose
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-
+const app = express();
 
 let comments = [
   { id: 1, comment: 'This is a comment' },
@@ -11,8 +11,19 @@ let comments = [
   { id: 3, comment: 'This is a third comment' },
 ];
 
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+// **Mongoose Connection**
+mongoose.connect('your_mongodb_connection_string', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Could not connect to MongoDB:', err));
+
+// Routes
 
 // Get all comments
 app.get('/comments', (req, res) => {
