@@ -62,7 +62,7 @@ function CommentsPage() {
       if (res.status === 200) {
         setComments(
           comments.map((c) =>
-            c.id === editId ? { ...c, comment: editComment } : c
+            c._id === editId ? { ...c, comment: editComment } : c
           )
         );
         setEditComment('');
@@ -85,7 +85,7 @@ function CommentsPage() {
 
       const data = await res.json();
       if (res.status === 200) {
-        setComments(comments.filter((c) => c.id !== id));
+        setComments(comments.filter((c) => c._id !== id));
         setStatusMessage(data.message);
       } else {
         setStatusMessage(data.message || 'Failed to delete comment.');
@@ -100,10 +100,10 @@ function CommentsPage() {
       <h1>Comments</h1>
       <ul id="comments-list">
         {comments.map((comment) => (
-          <li key={comment.id}>
+          <li key={comment._id}>
             <p>{comment.comment}</p>
-            <button onClick={() => { setEditId(comment.id); setEditComment(comment.comment); }}>Edit</button>
-            <button onClick={() => handleDeleteComment(comment.id)}>Delete</button>
+            <button onClick={() => { setEditId(comment._id); setEditComment(comment.comment); }}>Edit</button>
+            <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
           </li>
         ))}
       </ul>
